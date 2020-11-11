@@ -104,14 +104,14 @@ var to;
 
 while(from === undefined){
  let x = parseInt(prompt('insersci un numero da 1 a 6'));
- if( x < MYARRAY.length && x >= 1){
+ if( x < MYARRAY.length && x >= 1 && !isNaN(x)){
    from = x
  }
 };
 
 while(to === undefined){
   let x = parseInt(prompt('inserisci un altro numero superiore all altro e inferiore di 7'))
-  if(x > from && x < MYARRAY.length){
+  if(x >= from && x <= MYARRAY.length && !isNaN(x)){
     to = x
   }
 };
@@ -121,3 +121,29 @@ for(i=(from-1) ; i < to ;i++){
 };
 
 console.log(newArray);
+
+// dato un array di oggetti iniziale Creiamo una copia dell’array di partenza e aggiungiamo ai singoli elementi (quindi ogni oggetto del nuovo array)
+// una nuova proprietà position che contiene una lettera casuale. non dobbiamo modificare l’array iniziale
+
+var arrayObj = [
+  {name: 'Poppy', type: 'tshirt', color: 'red'},
+  {name: 'Jumping', type: 'occhiali', color: 'blue'},
+  {name: 'CrissCross', type: 'scarpe', color: 'black'},
+  {name: 'Jenny', type: 'borsa', color: 'pink'}
+];
+
+function generateRandomChar(){
+  let alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let randomChar = alph[Math.floor(Math.random() * alph.length)];
+  return randomChar;
+};
+
+var newObjArray=[];
+
+arrayObj.forEach((elem) => {
+  let x = {...elem,position:generateRandomChar()}
+  newObjArray.push(x)
+});
+
+console.log(arrayObj);
+console.log(newObjArray);
