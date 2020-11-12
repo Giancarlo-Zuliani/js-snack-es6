@@ -5,10 +5,7 @@ const PALLA = {
   peso : 10
 };
 
-let nuovoPeso = parseInt(prompt('inserisci il nuovo peso della palla'));
-
-PALLA.peso = nuovoPeso;
-
+PALLA.peso= parseInt(prompt('inserisci il nuovo peso della palla'));
 console.log(PALLA);
 
 
